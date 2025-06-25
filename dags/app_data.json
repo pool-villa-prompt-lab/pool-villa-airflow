@@ -1,0 +1,18 @@
+{
+    "scraper_status": "running",
+    "current_cycle": 0,
+    "last_update": "2025-06-20T09:14:05.066651",
+    "next_run": "2025-06-19T09:50:32.104033",
+    "spreadsheet_id": "1d2ceX5UrhktK5trydMheAm6wBn0ub-fh-g23t1vHkvg",
+    "config": {
+        "type": "both",
+        "mode": "continuous",
+        "start_date": "2025-06-20",
+        "end_date": "2025-06-30",
+        "wait_hours": 0.01,
+        "output": "villa_data.csv",
+        "current_date": "2025-06-20",
+        "last_run_date": "2025-06-20",
+        "last_scraped_date": "2025-06-30"
+    }
+}

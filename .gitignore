@@ -1,0 +1,6 @@
+.env
+logs
+plugins
+credentials.json
+dags/service_account.json
+dags/token.pickle

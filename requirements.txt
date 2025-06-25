@@ -1,0 +1,2 @@
+playwright==1.17.2
+pyee==9.0.4
