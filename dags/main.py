@@ -265,7 +265,7 @@ def read_from_google_sheet():
             logging.info(f"Using sheet: {sheet_name}")
             
             # Update range with correct sheet name
-            range_name = f"{sheet_name}!A1:Z1000"
+            range_name = f"{sheet_name}!A1:D1000"
             logging.info(f"Reading range: {range_name}")
             
         except Exception as e:

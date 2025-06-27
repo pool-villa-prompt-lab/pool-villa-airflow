@@ -67,13 +67,13 @@ def run_scheduled_scraper():
 
 # Define DAG
 with DAG(
-    dag_id='villa_scheduler_dag_test',
+    dag_id='villa_scheduler_v2_dag',
     description='Scrape villa every 6 hours and slide window every 4 runs',
     default_args=default_args,
     schedule='0 */6 * * *',  # ทุก 6 ชั่วโมง
     start_date=datetime(2024, 6, 25),
     catchup=False,
-    tags=['scheduler', 'villa'],
+    tags=['villa'],
 ) as dag:
 
     scheduled_scrape_task = PythonOperator(

@@ -36,10 +36,10 @@ with DAG(
     dag_id='villa_uploader_dag',
     description='Upload villa CSV to Google Sheets every hour',
     default_args=default_args,
-    schedule='@hourly',
+    schedule='*/5 * * * *',
     start_date=datetime(2024, 1, 1),
     catchup=False,
-    tags=['google_sheets', 'upload'],
+    tags=['google_sheets', 'villa'],
 ) as dag:
 
     upload_task = PythonOperator(
