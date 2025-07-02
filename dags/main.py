@@ -375,23 +375,14 @@ async def run_scraping_cycle(config, villa_df, scraper=None):
         scraper.is_continuous = config.get('mode') == 'continuous'
         
         # For continuous mode, check if we need to update dates based on real calendar
-        if config.get('mode') == 'continuous':
-            current_real_date = datetime.now().strftime('%Y-%m-%d')
-            last_run_date = config.get('last_run_date')
-            
-            # If this is first run or it's a new day
-            if not last_run_date or last_run_date < current_real_date:
-                # Set start date to yesterday
-                start_date = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-                # Set end date to 30 days from start date
-                end_date = (datetime.strptime(start_date, '%Y-%m-%d') + timedelta(days=30)).strftime('%Y-%m-%d')
+        start_date = config.get('start_date')
+        end_date = config.get('end_date')
                 
-                # Update config with new dates
-                config['start_date'] = start_date
-                config['end_date'] = end_date
-                config['last_run_date'] = current_real_date
-                update_storage('config', config)
-                logging.info(f"Updated date range for new day: {start_date} to {end_date}")
+            # Update config with new dates
+        config['start_date'] = start_date
+        config['end_date'] = end_date
+        update_storage('config', config)
+        logging.info(f"Updated date range for new day: {start_date} to {end_date}")
         
         # Start scraping for the entire date range
         await scraper.start_scraping(

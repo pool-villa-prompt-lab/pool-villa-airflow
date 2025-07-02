@@ -14,7 +14,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-STORAGE_PATH = "/opt/airflow/dags/storage.json"
+STORAGE_PATH = "/opt/airflow/dags/storage2.json"
 
 def load_storage():
     if os.path.exists(STORAGE_PATH):
@@ -30,8 +30,8 @@ def save_storage(data):
 def run_scheduled_scraper():
     storage = load_storage()
     
-    start_date = storage.get("start_date", "2024-06-25")
-    run_count = storage.get("run_count", 0)
+    start_date = storage.get("start_date")
+    run_count = storage.get("run_count")
     
     # Update run count
     run_count += 1
@@ -39,7 +39,7 @@ def run_scheduled_scraper():
 
     # Convert to datetime
     start_dt = datetime.strptime(start_date, "%Y-%m-%d")
-    end_dt = start_dt + timedelta(days=30)
+    end_dt = start_dt + timedelta(days=120)
 
     # หากรันครบ 4 ครั้ง ให้ขยับ start_date ไปอีก 1 วัน
     if run_count >= 4:

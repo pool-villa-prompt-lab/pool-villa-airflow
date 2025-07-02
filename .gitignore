@@ -4,3 +4,4 @@ plugins
 credentials.json
 dags/service_account.json
 dags/token.pickle
+__pycache__
